@@ -1,0 +1,23 @@
+.wrapper{
+  width: 100%;
+  font-size: 48px;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  background: url('../../assets//img/背景5.png');
+  background-size: 100% 100%;
+  background-position: center;
+  color: #fff;
+  .box{
+    position: absolute;
+    width: 400px;
+    height: 300px;
+    box-sizing: border-box;
+    padding: 40px 60px;
+    right: 20%;
+    top: 20%;
+    background: #fff;
+    box-shadow: 0 0 10px #999;
+    border-radius: 20px;
+  }
+}
