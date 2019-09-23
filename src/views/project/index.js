@@ -2,7 +2,7 @@
  * @Descripttion:   
  * @Author: xiancq
  * @Date: 2019-09-12 10:56:48
- * @LastEditTime: 2019-09-23 14:32:21
+ * @LastEditTime: 2019-09-23 14:32:35
  */
 import React, { Component } from 'react'
 import { Layout, Menu, Breadcrumb } from 'antd';
@@ -18,7 +18,7 @@ export default class Home extends Component {
   render(){
     return (
       <div>
-        home
+        project
       </div>
     )
   }
