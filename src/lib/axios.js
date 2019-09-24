@@ -2,7 +2,7 @@
  * @Description: In User Settings Edit
  * @Author: your name
  * @Date: 2019-08-15 11:10:50
- * @LastEditTime: 2019-09-16 11:47:49
+ * @LastEditTime: 2019-09-24 11:26:24
  * @LastEditors: Please set LastEditors
  */
 
@@ -26,7 +26,7 @@ let http$ = axios.create({
 
 http$.interceptors.response.use(async data => {
     const result = data.data;
-    console.log(result, 'result')
+    // console.log(result, 'result')
     return result
     if(result.success === "true"){
         return result

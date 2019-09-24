@@ -2,7 +2,7 @@
  * @Descripttion:   
  * @Author: xiancq
  * @Date: 2019-09-12 10:56:48
- * @LastEditTime: 2019-09-16 14:39:32
+ * @LastEditTime: 2019-09-24 10:32:20
  */
 import React, { Component } from 'react'
 import { Form, Icon, Input, Button, Checkbox } from 'antd';
@@ -16,7 +16,7 @@ import {message} from 'antd';
 class NormalLoginForm extends Component {
   constructor (props){
     super(props)
-    console.log('props是:', props)
+    // console.log('props是:', props)
   }
    handleSubmit = e => {
     e.preventDefault();

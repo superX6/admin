@@ -1,0 +1,25 @@
+// equitHeight 等高布局
+@mixin equalHeight {
+  display: table;
+  >div{
+    display: table-cell;
+    border: 1px solid #ddd;
+  }
+}
+
+@mixin equalHeight1 {
+  display: block;
+  overflow: hidden;
+  >div{
+    margin-bottom: -9999px;
+    padding-bottom: 9999px;
+    float: left;
+  }
+}
+
+@mixin textEllipsis($line : 1) {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: $line;
+  overflow: hidden;
+}

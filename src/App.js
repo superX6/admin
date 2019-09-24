@@ -2,7 +2,7 @@
  * @Description: In User Settings Edit
  * @Author: your name
  * @Date: 2019-08-07 15:19:40
- * @LastEditTime: 2019-09-23 14:19:37
+ * @LastEditTime: 2019-09-24 14:55:42
  * @LastEditors: Please set LastEditors
  */
 import Layouts from './components/layouts/layouts'
@@ -11,7 +11,7 @@ import { Route, Switch} from 'react-router-dom'
 import {ConnectedRouter} from 'connected-react-router'
 import routes from './router' //载入路由配置数组文件
 import 'antd/dist/antd.css'
-import './assets/css/common.scss'
+import './assets/css/index.scss'
 
 // console.log(Layouts, 99)
 

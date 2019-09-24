@@ -56,18 +56,12 @@ img {
 }
 
 .clearfix {
-  zoom: 1;
-  &:before {
-    display: table;
-    content: "";
-    line-height: 0;
-  }
-
-  &:after {
-    display: table;
-    content: "";
-    line-height: 0;
-  }
+  &::after{
+		display: table;
+		content: '';
+		clear: both;
+		overflow: hidden;
+	}
 }
 
 .container{
@@ -75,4 +69,8 @@ img {
   min-width: 1200px;
   max-width: 1400px;
   margin: 0 auto;
+}
+
+.input-wrapper{
+  width: 300px
 }
