@@ -1,0 +1,18 @@
+.create{
+  .title{
+    font-weight: bold;
+    margin: 20px 0;
+  }
+
+  .btn{
+    margin: 20px 0;
+  }
+  /deep/{
+    form .ant-select{
+      width: 300px;
+    }
+    .for-container{
+      margin-right: 20px;
+    }
+  }
+}

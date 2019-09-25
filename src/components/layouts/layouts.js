@@ -2,29 +2,39 @@
  * @Descripttion:   
  * @Author: xiancq
  * @Date: 2019-09-16 15:24:00
- * @LastEditTime: 2019-09-23 14:31:30
+ * @LastEditTime: 2019-09-25 16:21:01
  */
 import React, {Component} from 'react'
-import {Layout, BackTop} from 'antd'
+import {Layout} from 'antd'
 import Nav from './nav'
 import Right from './right'
 import './layout.scss'
 
 
 
-const { Content, Footer, Sider } = Layout;
+const { Content, Footer } = Layout;
 
 
 
 class Layouts extends Component {
   constructor(props) {
     super(props)
-    this.state = {}
   }
+
   render(){
+    // 登录注册路由时 处理
+    const isUserPage = ['/login', '/register'].includes(this.props.location.pathname)
+    if(isUserPage){
+      return (
+        <div>
+          {this.props.children}
+        </div>
+      )
+    }
+
     return (
       <div className="layout-wrapper">
-        <Nav />
+        <Nav />   
         <Layout className = "layouts container">
           <Content className="content">
             {this.props.children}

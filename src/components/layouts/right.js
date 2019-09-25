@@ -2,19 +2,11 @@
  * @Descripttion:   
  * @Author: xiancq
  * @Date: 2019-09-23 10:30:59
- * @LastEditTime: 2019-09-23 10:38:56
+ * @LastEditTime: 2019-09-25 11:09:09
  */
 import React, { Component } from 'react';
 import {
   Layout,
-  Icon,
-  Menu,
-  Row,
-  Col,
-  Button,
-  Drawer,
-  message,
-  Avatar,
 } from 'antd';
 
 const { Sider } = Layout;

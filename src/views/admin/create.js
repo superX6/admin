@@ -1,30 +1,26 @@
 /*
- * @Descripttion:   
+ * @Descripttion:  
  * @Author: xiancq
  * @Date: 2019-09-24 09:35:19
- * @LastEditTime: 2019-09-24 17:47:24
+ * @LastEditTime: 2019-09-25 15:23:17
  */
 import React, { Component } from 'react';
 import {
   Form,
   Input,
-  Tooltip,
-  Icon,
-  Cascader,
   Select,
-  Row,
-  Col,
-  Checkbox,
   Button,
-  AutoComplete,
 } from 'antd';
 import './create.scss'
 import {message} from 'antd';
 import http$ from '../../lib/axios';
-import Markdown from 'react-markdown';
+// import Markdown from 'react-markdown';
+import MdEditor from './mdEditor'
+import { withRouter } from 'react-router-dom'
 
 
-const { TextArea } = Input;
+
+// const { TextArea } = Input;
 const { Option } = Select;
 
 class CreateArticle extends Component {
@@ -33,18 +29,27 @@ class CreateArticle extends Component {
     this.state = {
       title: '',
       content: '',
-      tags: ''
+      tags: '',
     }
+    this.handleVal = this.handleVal.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
   handleSubmit = e => {
+   
     e.preventDefault();
     this.props.form.validateFields((err, values) => {
       if (!err) {
         // console.log(values, 'values')
-        const {title, category, tags, content} = values;
+        if(!this.state.content){
+          message.warning('请输入文章内容');
+          return
+        }
+        const {title, category, tags} = values;
+        // const {content} = this.state;
+        // console.log(this.state.content)
         http$.post('/createArticle', {
           'title': title,
-          'content': content,
+          'content': this.state.content,
           'author': 'superx',
           'category': category,
           'tags': tags,
@@ -54,7 +59,9 @@ class CreateArticle extends Component {
           // console.log(data, 'res create')
           if(data.success === 'true'){
             message.success('发布成功');
-            this.props.history.push('home')
+            // console.log(this.props)
+            this.props.history.push('/')
+            // this.props.history.replace('/home')
           }
         })
       }
@@ -65,7 +72,7 @@ class CreateArticle extends Component {
     const formItemLayout = {
       labelCol: {
         xs: { span: 24 },
-        sm: { span: 4 },
+        sm: { span: 2 },
       },
       wrapperCol: {
         xs: { span: 24 },
@@ -84,22 +91,10 @@ class CreateArticle extends Component {
         },
       },
     };
-    const source = '## 只求极致222\n' +
-      '[ **M** ] arkdown + E [ **ditor** ] = **Mditor**  \n' +
-      '> Mditor 是一个简洁、易于集成、方便扩展、期望舒服的编写 markdown 的编辑器，仅此而已... \n' +
-       '**这是加粗的文字**\n' +
-      '*这是倾斜的文字*`\n' +
-      '***这是斜体加粗的文字***\n' +
-      '~~这是加删除线的文字~~ \n'+
-      '> aaaaaaaaa\n' +
-      '>> bbbbbbbbb\n' +
-      '>>> cccccccccc\n'+
-      '***\n' +
-      '*****';
     return (
       <div className="create">
-        {/* <Form onSubmit={this.handleSubmit} {...formItemLayout}>
-     
+        <h2 className="title">用心记录文章</h2>
+        <Form labelAlign="left" onSubmit={this.handleSubmit} {...formItemLayout}>     
            <Form.Item label="标题">
               {getFieldDecorator('title', {
                 rules: [{ required: true, message: 'Please input your title!' }],
@@ -113,7 +108,7 @@ class CreateArticle extends Component {
                 {getFieldDecorator('category', {
                   rules: [{ required: true, message: 'Please select your country!' }],
                 })(
-                  <Select placeholder="选择文章分类">
+                  <Select placeholder="选择文章分类" className="input-wrapper">
                     <Option value="javascript">javascript</Option>
                     <Option value="css">css</Option>
                     <Option value="node">node</Option>
@@ -133,7 +128,7 @@ class CreateArticle extends Component {
               )}
             </Form.Item>
 
-            <Form.Item label="内容">
+            {/* <Form.Item label="内容">
               {getFieldDecorator('content', {
                 rules: [{ required: true, message: 'Please input your content!' }],
               })(
@@ -142,19 +137,24 @@ class CreateArticle extends Component {
                   autosize={{ minRows: 3 }}
                 />
               )}
-            </Form.Item>
-
-            <Form.Item {...tailFormItemLayout}>
+            </Form.Item> */}
+        <p style={{marginBottom: '10px'}}>文章内容：</p>
+        <MdEditor className="md-editor" handleVal={this.handleVal} />
+            <Form.Item className="btn" {...tailFormItemLayout}>
               <Button type="primary" htmlType="submit">
                 发表
               </Button>
             </Form.Item>            
         </Form>
-        <p>markdowm</p> */}
-        <Markdown source={source} />,
       </div>
     )
   }
+
+  handleVal(value){
+    // console.log(value, 'farther')
+    this.setState({content: value});
+  }
+    
 }
 // 经 Form.create() 包装过的组件会自带 this.props.form 属性
-export default Form.create({ name: 'createArticle' })(CreateArticle);
+export default withRouter(Form.create({ name: 'createArticle' })(CreateArticle));

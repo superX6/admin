@@ -2,15 +2,11 @@
  * @Descripttion:   
  * @Author: xiancq
  * @Date: 2019-09-24 16:06:26
- * @LastEditTime: 2019-09-24 16:23:37
+ * @LastEditTime: 2019-09-25 11:09:39
  */
 import React, {Component} from 'react';
 
 class Subassembly extends Component {
-  constructor(props){
-    super(props)    
-  }
-
   render(){
     return (
       <span style={{
