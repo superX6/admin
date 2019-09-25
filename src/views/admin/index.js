@@ -1,22 +1,42 @@
 /*
- * @Descripttion:   
+ * @Descripttion:  管理： 文章分类管理， 标签管理， 分类管理 做成tab
  * @Author: xiancq
  * @Date: 2019-09-23 11:38:31
- * @LastEditTime: 2019-09-25 15:49:24
+ * @LastEditTime: 2019-09-25 16:59:20
  */
 import React, { Component } from 'react'
-import Create from './create';
+import { Tabs, Button } from 'antd';
+import ArticleTable from './articleTable'
+
+const { TabPane } = Tabs;
+
 
 
 export default class Admin extends Component {
 constructor(props){
-  super(props)
+  super(props);
+  this.toCreate = this.toCreate.bind(this)
 }
+
 render(){
+  const operations = <Button onClick={this.toCreate}>创建文章</Button>;
   return (
-    <div>
-      <Create></Create>
-    </div>
+    <Tabs tabBarExtraContent={operations}>
+    <TabPane tab="文章管理" key="1">
+      <ArticleTable></ArticleTable>
+    </TabPane>
+    <TabPane tab="分类管理" key="2">
+      Content of tab 2
+    </TabPane>
+    <TabPane tab="标签管理" key="3">
+      Content of tab 3
+    </TabPane>
+  </Tabs>
    )
   }
+  toCreate(){
+    this.props.history.push('/admin/create')
+  }
+
+
 }

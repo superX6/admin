@@ -2,7 +2,7 @@
  * @Descripttion:   
  * @Author: xiancq
  * @Date: 2019-09-16 15:24:00
- * @LastEditTime: 2019-09-25 16:21:01
+ * @LastEditTime: 2019-09-25 17:15:53
  */
 import React, {Component} from 'react'
 import {Layout} from 'antd'
@@ -36,10 +36,11 @@ class Layouts extends Component {
       <div className="layout-wrapper">
         <Nav />   
         <Layout className = "layouts container">
+        <Right className="sider" />
           <Content className="content">
             {this.props.children}
           </Content>
-          <Right className="sider" />
+   
         </Layout>
         <Footer className="footer">          
           Stay Hungry. Stay Foolish. ©2019 Created by Superx

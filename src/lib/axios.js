@@ -2,12 +2,12 @@
  * @Description: In User Settings Edit
  * @Author: your name
  * @Date: 2019-08-15 11:10:50
- * @LastEditTime: 2019-09-24 11:26:24
+ * @LastEditTime: 2019-09-25 16:47:49
  * @LastEditors: Please set LastEditors
  */
 
 import axios from 'axios';
-import qs from 'qs'
+// import qs from 'qs'
 
 let http$ = axios.create({
     baseURL: '/', // 这里是本地admin启动的服务地址

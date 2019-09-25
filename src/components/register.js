@@ -2,7 +2,7 @@
  * @Descripttion:   
  * @Author: xiancq
  * @Date: 2019-08-15 15:05:19
- * @LastEditTime: 2019-09-12 10:00:44
+ * @LastEditTime: 2019-09-25 16:48:16
  */
 import React from 'react'
 import { Form, Icon, Input, Button, Checkbox } from 'antd';
@@ -12,7 +12,7 @@ class NormalLoginForm extends React.Component {
     e.preventDefault();
     this.props.form.validateFields((err, values) => {
       if (!err) {
-        console.log('Received values of form: ', values);
+        // console.log('Received values of form: ', values);
       }
     });
   };

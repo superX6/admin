@@ -2,7 +2,7 @@
  * @Descripttion:   
  * @Author: xiancq
  * @Date: 2019-09-12 10:18:22
- * @LastEditTime: 2019-09-23 14:33:17
+ * @LastEditTime: 2019-09-25 16:51:13
  */
 //引入动态加载
 import AC from '../lib/asyncLoad' 
@@ -29,6 +29,11 @@ export default [
         name: 'admin',
         path: '/admin',
         component: AC(() => import('../views/admin'))
+    },
+    {
+        name: 'create',
+        path: '/admin/create',
+        component: AC(() => import('../views/admin/create'))
     },
     {
         name: 'outlined',
