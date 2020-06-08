@@ -1,10 +1,3 @@
-/*
- * @Description: In User Settings Edit
- * @Author: your name
- * @Date: 2019-08-07 15:19:40
- * @LastEditTime: 2019-09-25 15:28:38
- * @LastEditors: Please set LastEditors
- */
 import Layouts from './components/layouts/layouts'
 import React from 'react'
 import { Route, Switch} from 'react-router-dom'

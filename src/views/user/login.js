@@ -2,7 +2,7 @@
  * @Descripttion:   
  * @Author: xiancq
  * @Date: 2019-09-12 10:56:48
- * @LastEditTime: 2019-09-24 10:32:20
+ * @LastEditTime: 2019-09-27 16:12:33
  */
 import React, { Component } from 'react'
 import { Form, Icon, Input, Button, Checkbox } from 'antd';
@@ -18,20 +18,54 @@ class NormalLoginForm extends Component {
     super(props)
     // console.log('props是:', props)
   }
-   handleSubmit = e => {
+  handleSubmit = e => {
     e.preventDefault();
-    this.props.form.validateFields((err, values) => {
+    this.props.form.validateFields(async (err, values) => {
       if (!err) {
-        http$.post('/login', {
-          username: values.username,
-          password: values.password
-        },{withCredentials: true }).then(data => {
-          if(data.success === 'true'){
-            message.success('登录成功');
-            this.props.history.push('/')
-          }
-          console.log(data, 'login response')
-        })
+        const params = {
+                     username: values.username,
+              password: values.password
+        }
+
+        try {
+          const data = await fetch('/login', {
+            method: 'POST',
+            // credentials: 'same-origin',
+            headers: {
+              'user-agent': 'Mozilla/4.0 MDN Example',
+              'content-type': 'application/json'
+            },
+            mode: 'cors',
+            body: JSON.stringify(params),
+          })
+          data.json().then(res => {
+            console.log(res)
+          })
+          
+        } catch (error) {
+          
+        }
+
+
+        // fetch('/login', {
+        //   method: 'post',
+        //   data: {
+        //     username: values.username,
+        //     password: values.password
+        //   }
+        // })
+
+
+        // http$.post('/login', {
+        //   username: values.username,
+        //   password: values.password
+        // },{withCredentials: true }).then(data => {
+        //   if(data.success === 'true'){
+        //     message.success('登录成功');
+        //     this.props.history.push('/')
+        //   }
+        //   console.log(data, 'login response')
+        // })
       }
     });
   };

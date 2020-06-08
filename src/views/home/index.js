@@ -2,7 +2,7 @@
  * @Descripttion:   
  * @Author: xiancq
  * @Date: 2019-09-12 10:56:48
- * @LastEditTime: 2019-09-25 15:49:11
+ * @LastEditTime : 2020-01-03 11:10:58
  */
 import React, { Component } from 'react'
 import http$ from '../../lib/axios';
@@ -10,6 +10,7 @@ import Subassembly from '../../components/Subassembly';
 import { Row, Col } from 'antd';
 import './home.scss'
 import moment from 'moment'
+import Config from './test'
 
 
 export default class Home extends Component {
@@ -23,6 +24,9 @@ export default class Home extends Component {
 
   componentDidMount(){
     this.getList();
+    Config.config();
+    
+    console.log(Config)
   }
   getList(){
     http$.get('/articles', {withCredentials: true }).then(data => {
@@ -48,7 +52,7 @@ export default class Home extends Component {
                     <Subassembly label="views" info="66" />
                     <Subassembly label="comment" info="0" />
                     <Subassembly label="start" info="6" />
-                    <Subassembly info={moment().format('YYYY-MM-DD')} />
+                    <Subassembly info={moment(Number(list.update_time)).format('YYYY-MM-DD')} />
                   </p>
                 </Col>
                 <Col span={15}></Col>

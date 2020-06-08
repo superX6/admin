@@ -1,0 +1,5 @@
+src/components/Autoform/Encrypt/**
+tests/
+vue.config.js
+node_modules/
+dist/

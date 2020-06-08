@@ -1,9 +1,4 @@
-/*
- * @Descripttion:   
- * @Author: xiancq
- * @Date: 2019-09-12 10:18:22
- * @LastEditTime: 2019-09-25 16:51:13
- */
+
 //引入动态加载
 import AC from '../lib/asyncLoad' 
 
@@ -49,5 +44,10 @@ export default [
         name: 'about',
         path: '/about',
         component: AC(() => import('../views/about'))
+    },
+    {
+        name: 'test',
+        path: '/test',
+        component: AC(() => import('../views/test'))
     },
 ]
