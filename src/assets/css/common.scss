@@ -1,48 +1,48 @@
 
 @import './reset.scss';
 
-* {
-  box-sizing: border-box;
-}
-*:before,
-*:after {
-  box-sizing: border-box;
-}
-html, body{
-	font-family: -apple-system, "Noto Sans", "Helvetica Neue", Helvetica, "Nimbus Sans L", Arial, 
-      "Liberation Sans", "PingFang SC", "Hiragino Sans GB", "Noto Sans CJK SC", 
-      "Source Han Sans SC", "Source Han Sans CN", "Microsoft YaHei", "Wenquanyi Micro Hei", 
-      "WenQuanYi Zen Hei", "ST Heiti", SimHei, "WenQuanYi Zen Hei Sharp", sans-serif;
-  font-weight: normal;
-  font-size: 14px;
-	width: 100%;
-	height: 100%;
-  color: #000;
-}
+// * {
+//   box-sizing: border-box;
+// }
+// *:before,
+// *:after {
+//   box-sizing: border-box;
+// }
+// html, body{
+// 	font-family: -apple-system, "Noto Sans", "Helvetica Neue", Helvetica, "Nimbus Sans L", Arial, 
+//       "Liberation Sans", "PingFang SC", "Hiragino Sans GB", "Noto Sans CJK SC", 
+//       "Source Han Sans SC", "Source Han Sans CN", "Microsoft YaHei", "Wenquanyi Micro Hei", 
+//       "WenQuanYi Zen Hei", "ST Heiti", SimHei, "WenQuanYi Zen Hei Sharp", sans-serif;
+//   font-weight: normal;
+//   font-size: 14px;
+// 	width: 100%;
+// 	height: 100%;
+//   color: #000;
+// }
 
-html, body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, input, button, textarea, p, blockquote, th, td {
-  margin: 0;
-  padding: 0;
-}
-a{
-  text-decoration: none;
-}
+// html, body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, input, button, textarea, p, blockquote, th, td {
+//   margin: 0;
+//   padding: 0;
+// }
+// a{
+//   text-decoration: none;
+// }
 
-h1, h2, h3, h4, h5, h6 {
-  font-weight: normal;
-  font-size: 100%;
-}
-i{
-  font-style: normal;
-}
-ol, ul, li {
-  list-style: none;
-}
+// h1, h2, h3, h4, h5, h6 {
+//   font-weight: normal;
+//   font-size: 100%;
+// }
+// i{
+//   font-style: normal;
+// }
+// ol, ul, li {
+//   list-style: none;
+// }
 
-img {
-  border: none;
-  max-width: 100%;
-}
+// img {
+//   border: none;
+//   max-width: 100%;
+// }
 
 #root{
   min-height: 100%;

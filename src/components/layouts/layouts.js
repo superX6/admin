@@ -2,7 +2,7 @@
  * @Descripttion:   
  * @Author: xiancq
  * @Date: 2019-09-16 15:24:00
- * @LastEditTime: 2019-09-25 17:15:53
+ * @LastEditTime: 2020-06-10 14:23:28
  */
 import React, {Component} from 'react'
 import {Layout} from 'antd'
@@ -31,7 +31,6 @@ class Layouts extends Component {
         </div>
       )
     }
-
     return (
       <div className="layout-wrapper">
         <Nav />   

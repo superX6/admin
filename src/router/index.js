@@ -26,6 +26,11 @@ export default [
         component: AC(() => import('../views/admin'))
     },
     {
+        name: 'detail',
+        path: '/detail',
+        component: AC(() => import('../views/detail'))
+    },
+    {
         name: 'create',
         path: '/admin/create',
         component: AC(() => import('../views/admin/create'))

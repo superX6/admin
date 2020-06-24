@@ -1,9 +1,3 @@
-/*
- * @Descripttion:  
- * @Author: xiancq
- * @Date: 2019-09-24 09:35:19
- * @LastEditTime: 2019-09-25 15:23:17
- */
 import React, { Component } from 'react';
 import {
   Form,
@@ -141,9 +135,7 @@ class CreateArticle extends Component {
         <p style={{marginBottom: '10px'}}>文章内容：</p>
         <MdEditor className="md-editor" handleVal={this.handleVal} />
             <Form.Item className="btn" {...tailFormItemLayout}>
-              <Button type="primary" htmlType="submit">
-                发表
-              </Button>
+              <Button type="primary" htmlType="submit">发表</Button>
             </Form.Item>            
         </Form>
       </div>

@@ -2,7 +2,7 @@
  * @Descripttion:   
  * @Author: xiancq
  * @Date: 2019-09-12 10:56:48
- * @LastEditTime: 2019-09-27 16:12:33
+ * @LastEditTime: 2020-06-10 17:19:19
  */
 import React, { Component } from 'react'
 import { Form, Icon, Input, Button, Checkbox } from 'antd';
@@ -39,33 +39,11 @@ class NormalLoginForm extends Component {
             body: JSON.stringify(params),
           })
           data.json().then(res => {
-            console.log(res)
+            message.success('登录成功');
+            this.props.history.push('admin')
           })
           
-        } catch (error) {
-          
-        }
-
-
-        // fetch('/login', {
-        //   method: 'post',
-        //   data: {
-        //     username: values.username,
-        //     password: values.password
-        //   }
-        // })
-
-
-        // http$.post('/login', {
-        //   username: values.username,
-        //   password: values.password
-        // },{withCredentials: true }).then(data => {
-        //   if(data.success === 'true'){
-        //     message.success('登录成功');
-        //     this.props.history.push('/')
-        //   }
-        //   console.log(data, 'login response')
-        // })
+        } catch (error) {}
       }
     });
   };

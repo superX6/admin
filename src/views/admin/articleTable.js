@@ -2,7 +2,7 @@
  * @Descripttion:   
  * @Author: xiancq
  * @Date: 2019-09-12 10:56:48
- * @LastEditTime: 2019-09-25 17:19:26
+ * @LastEditTime: 2020-06-10 18:05:33
  */
 import React, { Component } from 'react'
 import http$ from '../../lib/axios';
@@ -60,7 +60,7 @@ export default class ArticleTable extends Component {
         key: 'action',
         render: (text, record) => (
           <span>
-            <a>详情 {record.name}</a>
+            <a onClick = {() => this.props.historys.push(`/detail/${record.id}`)}>详情</a>
             <Divider type="vertical" />
             <a>Delete</a>
           </span>
@@ -71,19 +71,18 @@ export default class ArticleTable extends Component {
   
     return (
       <div>
-        <Table columns={columns} dataSource={this.state.articleList} />
+        <Table columns={columns} dataSource={this.state.articleList} rowKey='id' />
       </div>
     )
   }
 
   getList(){
     http$.get('/articles', {withCredentials: true }).then(data => {
-      console.log(data, 'data')
+      // console.log(data, 'data')
       const articleList = data.list || [];
       this.setState({
         articleList
       })
-
     })
   }
 }
