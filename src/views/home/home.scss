@@ -9,6 +9,9 @@
   padding: 15px 0;
   border-bottom: 1px solid #ddd;
   margin-bottom: 10px;
+  .art_title{
+    cursor: pointer;
+  }
   .art_detail{
     @include textEllipsis($line: 2);   
     margin: 5px 0;

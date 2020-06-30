@@ -14,7 +14,7 @@ import { withRouter } from 'react-router-dom'
 
 
 
-// const { TextArea } = Input;
+const { TextArea } = Input;
 const { Option } = Select;
 
 class CreateArticle extends Component {
@@ -24,6 +24,7 @@ class CreateArticle extends Component {
       title: '',
       content: '',
       tags: '',
+      essentials: ''
     }
     this.handleVal = this.handleVal.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -38,7 +39,7 @@ class CreateArticle extends Component {
           message.warning('请输入文章内容');
           return
         }
-        const {title, category, tags} = values;
+        const {title, category, tags, essentials} = values;
         // const {content} = this.state;
         // console.log(this.state.content)
         http$.post('/createArticle', {
@@ -47,6 +48,7 @@ class CreateArticle extends Component {
           'author': 'superx',
           'category': category,
           'tags': tags,
+          'essentials': essentials,
           'create_time': new Date().getTime(),
           'update_time': new Date().getTime(),
         },{withCredentials: true }).then(data => {
@@ -122,16 +124,16 @@ class CreateArticle extends Component {
               )}
             </Form.Item>
 
-            {/* <Form.Item label="内容">
-              {getFieldDecorator('content', {
-                rules: [{ required: true, message: 'Please input your content!' }],
+            <Form.Item label="概述">
+              {getFieldDecorator('essentials', {
+                rules: [{ required: true, message: 'Please input your essentials!' }],
               })(
               <TextArea
-                  placeholder="content"
+                  placeholder="概述"
                   autosize={{ minRows: 3 }}
                 />
               )}
-            </Form.Item> */}
+            </Form.Item>
         <p style={{marginBottom: '10px'}}>文章内容：</p>
         <MdEditor className="md-editor" handleVal={this.handleVal} />
             <Form.Item className="btn" {...tailFormItemLayout}>
