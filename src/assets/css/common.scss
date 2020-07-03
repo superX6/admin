@@ -48,6 +48,7 @@
   min-height: 100%;
 }
 
+
 .fl{
   float: left;
 }
@@ -64,13 +65,38 @@
 	}
 }
 
-.container{
-  // width: 1200px;
-  min-width: 1200px;
-  max-width: 1400px;
+.container {
+  width: 1170px;
   margin: 0 auto;
 }
+@media screen and (max-width: 768px) {
+  /*1. 在超小屏设备的时候 768px以下      当前容器的宽度100%     */
+  .container{
+      width: 100%;
+  }
+}
+@media screen and (min-width: 768px) and (max-width: 992px){
+        /*2. 在小屏设备的时候   768px-992px    当前容器的宽度750px    */
+        .container{
+            width: 750px;
+        }
+    }
+    @media screen and (min-width: 992px) and (max-width: 1200px){
+        /*3. 在中屏设备的时候   992px-1200px   当前容器的宽度970px    */
+        .container{
+            width: 970px;
+        }
+    }
+    @media screen and (min-width: 1200px){
+        /*4. 在大屏设备的时候   1200px以上      当前容器的宽度1170px   */
+        .container{
+            width: 1170px;
+        }
+    }
 
 .input-wrapper{
   width: 300px
+}
+.panel{
+  padding: 40px 20px;
 }

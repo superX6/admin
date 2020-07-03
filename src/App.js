@@ -13,7 +13,6 @@ export default ({history}) => (
         <Layout2>
           {
             routes.map(({ name, path, exact = true, component }) =>{
-              // console.log(path)
               if(path === '/detail'){
                 return <Route path="/detail/:id" exact={exact} component={component}  key={name} /> 
               }

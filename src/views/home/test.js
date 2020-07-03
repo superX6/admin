@@ -1,9 +1,4 @@
-/*
- * @Descripttion:   
- * @Author: xiancq
- * @Date: 2019-09-27 17:13:33
- * @LastEditTime: 2019-09-27 17:26:35
- */
+
 /**
  * ctFetch的全局配置模块
  */

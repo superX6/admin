@@ -4,7 +4,7 @@ import Subassembly from "../../components/Subassembly";
 import { Row, Col, Pagination } from "antd";
 import "./home.scss";
 import moment from "moment";
-import Config from "./test";
+// import Config from "./test";
 
 export default class Home extends Component {
   constructor(props) {
@@ -19,9 +19,9 @@ export default class Home extends Component {
 
   componentDidMount() {
     this.getList();
-    Config.config();
+    // Config.config();
 
-    console.log(Config);
+    // console.log(Config);
   }
   handlerChangePageNo(val){
     this.setState({
@@ -49,7 +49,7 @@ export default class Home extends Component {
         {this.state.articleList.map((list, index) => {
           return (
             <Row key={index} className="article-list">
-              <Col span={19}>
+              <Col span={24}>
                 <h3 className="art_title" onClick={() => this.props.history.push(`/detail/${list.id}`)}>{list.title}</h3>
                 <div className="art_detail">{list.essentials}</div>
                 <p>

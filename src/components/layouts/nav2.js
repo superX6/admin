@@ -40,27 +40,6 @@ class Nav extends Component {
   componentWillReceiveProps(nextProps) {
     // this.initMenu(nextProps.pathname);
   }
-  
-  // initMenu(name) {
-  //   let key = '1';
-  //   let navTitle = '';
-  //   if (name === '/') {
-  //     key = '1';
-  //     navTitle = '首页';
-  //   } else if (name === '/admin') {
-  //     key = '2';
-  //     navTitle = '管理';
-  //   } else if (name === '/outlined') {
-  //     key = '3';
-  //     navTitle = '归档';
-  //   } else if (name === '/project') {
-  //     key = '4';
-  //     navTitle = '项目';
-  //   } else if (name === '/about') {
-  //     key = '5';
-  //     navTitle = '关于';
-  //   } 
-  // }
 
 
   handleMenu = e => {
@@ -73,7 +52,9 @@ class Nav extends Component {
     return (
       <div className="nav clearfix">
         {/* <div className="container"> */}
-        <div className="logo fl">  BLOG        </div>
+        {/* <div className="logo fl">  BLOG        </div> */}
+
+        
               
         <Menu
               className="menu fr"

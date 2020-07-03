@@ -1,8 +1,59 @@
+
+
 .layout-wrapper{
   // min-height: 100%;
-  .l-header{
-    height: 520px;
-    // background-image: url('@/assets/img/banner.jpg');
-    background-size: 100% 100%;
+  position: relative;
+  font-size: 18px;
+  
+  .nav{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;   
+    font-size: 36px;
+    font-weight: bold;
   }
+  .l-header{
+    // height: 520px;
+
+    background-image: url('../../assets/img/banner.jpg');
+    background-size: 100% 100%;
+    background-position: center center;
+    padding: 150px 0;
+    color: white;
+    text-align: center;
+    .info{
+      text-align: left;
+    }
+ 
+    .title{
+      line-height: 48px;
+      font-size: 55px;
+      padding: 20px;
+      font-weight: bold;
+    }
+    .time{
+      font-family: 'Lora','Times New Roman',serif;
+      font-style: italic;
+      font-weight: 300;
+      font-size: 24px;
+      padding-left: 20px;
+    }
+  }
+  .l-content{
+    min-height: calc( 100vh - 520px);
+  }
+  /deep/{
+    .ant-menu{
+      width: 100%;
+      background: transparent;
+      text-align: right;
+    }
+    .ant-menu-horizontal > .ant-menu-item > a{
+      color: #fff;
+    }
+  }
+}
+.ttest{
+  color: #000;
 }

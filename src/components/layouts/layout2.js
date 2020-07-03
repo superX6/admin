@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import {Layout} from 'antd'
+import {Layout,   Row,  Col,} from 'antd'
 import Nav from './nav'
 import Nav2 from './nav2'
 import Right from './right'
@@ -29,12 +29,15 @@ class Layouts extends Component {
     return (
       <div className="layout-wrapper">
         {/* <Nav />    */}
-        <Layout className = "layouts container">
+        <Layout className = "layouts">
           <div className="l-header">
-            header
-            <Nav2></Nav2>
+           <Nav2></Nav2>
+           <div className="container info">
+              <div className="title">移动端自适应方案</div>
+              <div className="time"><i>Posted by superx on Jan 3, 2020</i></div>
+           </div>
           </div>
-          <Content className="content">
+          <Content className="l-content container">
             {this.props.children}
           </Content>  
           <Footer className="footer">          

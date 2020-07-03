@@ -43,7 +43,6 @@ class CreateArticle extends Component {
         }
         const {title, category, tags, essentials} = values;
         console.log(values ,'val')
-        debugger
         http$.post('/createArticle', {
           'title': title,
           'content': this.state.content,
@@ -55,7 +54,6 @@ class CreateArticle extends Component {
           'create_time': new Date().getTime(),
           'update_time': new Date().getTime(),
         },{withCredentials: true }).then(data => {
-          // console.log(data, 'res create')
           if(data.success === 'true'){
             message.success('发布成功');
             // console.log(this.props)
@@ -109,7 +107,7 @@ class CreateArticle extends Component {
       },
     };
     return (
-      <div className="create">
+      <div className="create panel">
         <Form labelAlign="left" onSubmit={this.handleSubmit} {...formItemLayout}>     
            <Form.Item label="标题">
               {getFieldDecorator('title', {

@@ -5,9 +5,15 @@ import AC from '../lib/asyncLoad'
 // 定义路由的对象数组
 export default [
     {
-        name: 'home',
+        name: 'index',
         icon: 'home',
         path: '/',
+        component: AC(() => import('../views/home/index.js'))//加载进来的是一个组件,也就是一个类
+    },
+    {
+        name: 'home',
+        icon: 'home',
+        path: '/home',
         component: AC(() => import('../views/home/index.js'))//加载进来的是一个组件,也就是一个类
     },
     {
