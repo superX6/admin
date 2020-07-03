@@ -2,7 +2,7 @@
  * @Description: In User Settings Edit
  * @Author: your name
  * @Date: 2019-08-15 11:10:50
- * @LastEditTime: 2019-09-25 16:47:49
+ * @LastEditTime: 2020-07-01 17:32:31
  * @LastEditors: Please set LastEditors
  */
 
@@ -11,7 +11,7 @@ import axios from 'axios';
 
 let http$ = axios.create({
     baseURL: '/', // 这里是本地admin启动的服务地址
-    timeout: 5000 // request timeout
+    timeout: 10000 // request timeout
 })
 // http$.interceptors.request.use(config => {
 //     if (config.method === 'post' || config.method === 'put' || config.method === 'delete') {

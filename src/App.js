@@ -1,11 +1,4 @@
-/*
- * @Description: In User Settings Edit
- * @Author: your name
- * @Date: 2019-08-07 15:19:40
- * @LastEditTime: 2020-06-10 18:04:15
- * @LastEditors: Please set LastEditors
- */
-import Layouts from './components/layouts/layouts'
+import Layout2 from './components/layouts/layout2'
 import React from 'react'
 import { Route, Switch} from 'react-router-dom'
 import {ConnectedRouter} from 'connected-react-router'
@@ -17,7 +10,7 @@ import './assets/css/index.scss'
 export default ({history}) => (
     <ConnectedRouter history={history}>
       <Switch>
-        <Layouts>
+        <Layout2>
           {
             routes.map(({ name, path, exact = true, component }) =>{
               // console.log(path)
@@ -27,7 +20,7 @@ export default ({history}) => (
               return  <Route path={path} exact={exact} component={component}  key={name} />     
             })
           }
-        </Layouts>
+        </Layout2>
       </Switch>
     </ConnectedRouter>
  
