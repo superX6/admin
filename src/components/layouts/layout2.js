@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import {Layout} from 'antd'
 import Nav from './nav'
+import Nav2 from './nav2'
 import Right from './right'
 import './layout2.scss'
 
@@ -31,6 +32,7 @@ class Layouts extends Component {
         <Layout className = "layouts container">
           <div className="l-header">
             header
+            <Nav2></Nav2>
           </div>
           <Content className="content">
             {this.props.children}
