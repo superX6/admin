@@ -4,11 +4,11 @@ import Subassembly from "../../components/Subassembly";
 import { Row, Col, Pagination } from "antd";
 import "./home.scss";
 import moment from "moment";
-// import Config from "./test";
+import { connect } from "react-redux";
 
-export default class Home extends Component {
-  constructor(props) {
-    super(props);
+class Home extends Component {
+  constructor(props, context) {
+    super(props, context);
     this.state = {
       articleList: [],
       pageNo: 1
@@ -20,8 +20,6 @@ export default class Home extends Component {
   componentDidMount() {
     this.getList();
     // Config.config();
-
-    // console.log(Config);
   }
   handlerChangePageNo(val){
     this.setState({
@@ -36,7 +34,7 @@ export default class Home extends Component {
     };
     http$.get("/articles", { withCredentials: true, params: params })
       .then((data) => {
-        console.log(data, "data");
+        // console.log(data, "data");
         const articleList = data.list || [];
         this.setState({
           articleList,
@@ -49,20 +47,20 @@ export default class Home extends Component {
         {this.state.articleList.map((list, index) => {
           return (
             <Row key={index} className="article-list">
-              <Col span={24}>
-                <h3 className="art_title" onClick={() => this.props.history.push(`/detail/${list.id}`)}>{list.title}</h3>
-                <div className="art_detail">{list.essentials}</div>
-                <p>
-                  <Subassembly label="views" info="66" />
-                  <Subassembly label="comment" info="0" />
-                  <Subassembly label="start" info="6" />
-                  <Subassembly
-                    info={moment(Number(list.update_time)).format("YYYY-MM-DD")}
-                  />
-                </p>
-              </Col>
-              <Col span={15}></Col>
-            </Row>
+            <Col span={24}>
+              <h3 className="art_title" onClick={() => this.props.history.push(`/detail/${list.id}`)}>{list.title}</h3>
+              <i className="art_detail">{list.essentials}</i>
+              <p>
+                {/* <Subassembly label="views" info="66" />
+                <Subassembly label="comment" info="0" />
+                <Subassembly label="start" info="6" /> */}
+                <Subassembly
+                  info={moment(Number(list.update_time)).format("YYYY-MM-DD")}
+                />
+              </p>
+            </Col>
+            <Col span={15}></Col>
+          </Row>
           );
         })}
         {this.state.articleList.length > 0 ? <Pagination defaultCurrent={1} total={50} onChange={this.handlerChangePageNo} /> : ''}
@@ -71,3 +69,22 @@ export default class Home extends Component {
     );
   }
 }
+
+function mapStateToProps(state) {
+  // console.log(state)
+  return {
+    title: state.home.title
+  }
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+      get_article_list: bindActionCreators(get_article_list, dispatch),
+      get_article_detail:bindActionCreators(get_article_detail,dispatch)
+  }
+}
+
+export default connect(
+  mapStateToProps,
+  // mapDispatchToProps
+)(Home)

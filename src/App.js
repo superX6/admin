@@ -6,6 +6,8 @@ import routes from './router' //载入路由配置数组文件
 import 'antd/dist/antd.css'
 import './assets/css/index.scss'
 
+console.log(Route, 'router')
+
 
 export default ({history}) => (
     <ConnectedRouter history={history}>

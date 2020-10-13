@@ -1,0 +1,19 @@
+.detail{
+  padding: 50px 20px;
+  &-content{
+    width: 75%;
+    float: left;
+  }
+  &-menu{
+    width: 25%;
+    float: left;
+
+  }
+}
+
+@media screen and (max-width: 768px) {
+  /*1. 在超小屏设备的时候 768px以下      当前容器的宽度100%     */
+  .container{
+      width: 100%;
+  }
+}

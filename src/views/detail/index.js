@@ -6,10 +6,13 @@ import hljs  from 'highlight.js'
 import 'highlight.js/styles/github.css';
 import MarkNav from 'markdown-navbar';
 import 'markdown-navbar/dist/navbar.css';
+import "./detail.scss";
+import { connect } from "react-redux";
+import moment from "moment";
+// import {setRouteLeaveHook} from 'react-router'
 
 
-
-export default class Detail extends Component {
+class Detail extends Component {
   constructor(props){
     super(props);
     this.state = {
@@ -20,19 +23,23 @@ export default class Detail extends Component {
     }
     this.getList = this.getList.bind(this);
   }
+  routerWillLeave(nextLocation){
+    // console.log('router will go to '+nextlocation)       
+    return true
+  }
   componentDidMount(){
     this.initMd();
     this.getList();
+    // this.props.router.setRouteLeaveHook(this.props.routes, this.routerWillLeave)
   }
 
   render() {
     return (
-      <div> 
-        <Row>
-          <Col span={18}>
-            <div dangerouslySetInnerHTML = {{__html: marked(this.state.res.content )}}></div>
-          </Col>
-          <Col span={6}>
+      <div className="detail"> 
+        <div className="detail-content fl">
+           <div dangerouslySetInnerHTML = {{__html: marked(this.state.res.content )}}></div>
+        </div>
+        <div className="detail-menu fr">
           <Affix offsetTop={5}>
             <div className="detailed-nav comm-box">
               <div className="nav-title">文章目录</div>
@@ -43,8 +50,7 @@ export default class Detail extends Component {
             />
             </div>
           </Affix>
-          </Col>
-        </Row>
+        </div>
       </div>
     );
   }
@@ -61,6 +67,8 @@ export default class Detail extends Component {
         this.setState({
           res
         })
+        this.props.setTitle(res.title)
+        this.props.setSubTitle(`POST ON ${moment(Number(res.create_time)).format("YYYY-MM-DD")}.  BY ${res.author}`)
       }
     })
   }
@@ -81,3 +89,23 @@ export default class Detail extends Component {
     }); 
   }
 }
+
+function mapStateToProps(state) {
+  return {
+    title: state.home.title,
+    subTitle: state.home.subTitle,
+    count: state.home.count,
+  }
+}
+// export default Layouts;
+function mapDispatchToProps(dispatch) {
+  return {
+      setTitle: tag => { dispatch({type:'SET_BANNER_TITLE', title: tag})},
+      setSubTitle: tag => { dispatch({type:'SET_BANNER_SUBTITLE', subTitle: tag})},
+  }
+}
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Detail)

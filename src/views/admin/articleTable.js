@@ -1,9 +1,4 @@
-/*
- * @Descripttion:   
- * @Author: xiancq
- * @Date: 2019-09-12 10:56:48
- * @LastEditTime: 2020-06-10 18:05:33
- */
+
 import React, { Component } from 'react'
 import http$ from '../../lib/axios';
 import { Table, Divider, Tooltip,  Tag } from 'antd';
@@ -53,7 +48,7 @@ export default class ArticleTable extends Component {
             }
           }
         },
-        render: (text) => <Tooltip placement="topLeft" title={text}>{text}</Tooltip>
+        render: (text) => <Tooltip placement="topLeft" >{text}</Tooltip>
       },
       {
         title: 'Action',

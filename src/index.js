@@ -10,7 +10,6 @@ import App from './App'  //路由的控制由app.js文件来完成
 
 const store = configureStore()
 
-
 const rootElement = document.getElementById('root')
 
 
